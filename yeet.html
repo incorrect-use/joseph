@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<header>esketit</header>
+<body>
+        <input type= "text"  id= "input">
+        <button id= "addbtn">add</button>
+        <div id= "content"> </div>
+        <script>
+            document.getElementById("content").innerHTML = localStorage.getItem("myList")
+            document.getElementById("addbtn").addEventListener("click", function(){
+                var a = document.createElement("li")
+                a.innerHTML = document.getElementById("input").value
+
+                var b = document.createElement("button")
+                b.addEventListener('click', removeitem)
+                b.innerHTML = 'x'
+                a.append(b)
+            
+                document.getElementById("content").append(a)
+                localStorage.setItem("myList", document.getElementById('content').innerHTML)
+            })
+            function removeitem(){
+              this.parentMode.remove()
+            }
+        </script>
+</body>
+</html>
